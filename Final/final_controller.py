@@ -43,21 +43,30 @@ class BaseHandler(webapp2.RequestHandler):  # Copied from Google's doc
 # [START main_page]
 class MainPage(BaseHandler):
 
-    def get(self):
-        District= self.request.get("district")
-        Income= self.request.get("income")
-        Persons = self.request.get("persons")
-        User = finalFuncs.User(District, Income, Persons)
-        Cost = finalFuncs.Cost()
-        total = finalFuncs.totalCost(Cost, User)
-        
-        
-        template_values= {'District':District, 'Income':Income, "Persons":Persons, "User":User, "Cost":total}
-        
-        template = JINJA_ENVIRONMENT.get_template('finalproject.html')
-        self.response.write(template.render(template_values))
-# [END main_page]
+	def get(self):
+	
+		template_values= {}
+		template = JINJA_ENVIRONMENT.get_template('finalproject.html')
+		self.response.write(template.render(template_values))
 
+   
+# [END main_page]
+class ControllerPage(BaseHandler):
+
+	 def get(self):
+	 	district= self.request.get("district")
+	 	income= self.request.get("income")
+	 	income = int(income)
+	 	persons = self.request.get("persons")
+	 	persons = int(persons) 
+	 	user = finalFuncs.User(district, income, persons)
+	 	cost = finalFuncs.Cost()
+	 	total = finalFuncs.totalCost(cost, user)
+	 	
+	 	template_values= {'Cost':total}
+	 	
+	 	template = JINJA_ENVIRONMENT.get_template('DisplaySolarInfo.html')
+	 	self.response.write(template.render(template_values))
 
 
 # boiler plate, leave as is
@@ -70,4 +79,6 @@ config['webapp2_extras.sessions'] = {
 # here is where you map your url requests to handlers
 app = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/send', ControllerPage),
 ], config=config, debug=True)
+
