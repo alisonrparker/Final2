@@ -1,8 +1,8 @@
 class User:
-	def __init__(self, District, Income, Persons):
-		self.district = District
-		self.income = Income
-		self.persons = Persons
+	def __init__(self, district, income, persons):
+		self.district = district
+		self.income = income
+		self.persons = persons
 
 class Cost:	
 	def __init__(self):
@@ -11,15 +11,16 @@ class Cost:
 		
 
 
-def totalCost(Cost, User):
+def totalCost(cost, user):
 	totalCost = 12000
-	for i in range (len(Cost.subsidies)):
-		if User.district == Cost.subsidies[i]:
+	for i in range (len(cost.subsidies)):
+		if user.district == cost.subsidies[i]:
 			totalCost = totalCost - 800		
 	
-	numPeople = User.persons
-	#medianIncome = Cost.medianI #something is wrong
-	if User.income < medianIncome:
+	numPeople = user.persons
+	print numPeople
+	medianIncome = cost.medianI[numPeople] #KeyError
+	if user.income < medianIncome:
 		totalCost = totalCost - 7000
 	
 	#for key, value in Cost.medianI:
@@ -29,5 +30,4 @@ def totalCost(Cost, User):
 				
 	return totalCost
 				
-			
 		
