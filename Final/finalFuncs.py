@@ -30,4 +30,4 @@ def totalCost(cost, user):
 				
 	return totalCost
 				
-		
+places = {'Richmond': 4.12, 'Marina':4.59, 'North Beach':4.58, 'Parkside':4.12, 'Hayes Valley':4.61, 'SoMa':4.82, 'Midtown Terrace':4.12, 'Bayview':4.44, 'Portola':4.5, 'Visitacian Valley':4.79, 'Castro':4.41, 'Mission':4.58, 'South San Francisco': 5.04, 'Lake Shore':4.15, 'San Mateo':4.95, 'South Beach':4.64, 'Dogpatch':4.65, 'Alamo Square/Western Addition':3.79, 'Sunnyside':4.23, 'Union Square':4.30, 'Financial District':4.47, 'Yerba Buena':4.45, 'Embarcadero':4.83, 'Nopa':4.28}		
