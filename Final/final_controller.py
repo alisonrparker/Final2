@@ -62,8 +62,9 @@ class ControllerPage(BaseHandler):
 	 	user = finalFuncs.User(district, income, persons)
 	 	cost = finalFuncs.Cost()
 	 	total = finalFuncs.totalCost(cost, user)
+	 	condition = finalFuncs.conditions(total, district, user)
 	 	
-	 	template_values= {'Cost':total}
+	 	template_values= {'Cost':total, 'Condition':condition}
 	 	
 	 	template = JINJA_ENVIRONMENT.get_template('DisplaySolarInfo.html')
 	 	self.response.write(template.render(template_values))
