@@ -62,7 +62,7 @@ class ControllerPage(BaseHandler):
 	 	user = finalFuncs.User(district, income, persons)
 	 	cost = finalFuncs.Cost()
 	 	total = finalFuncs.totalCost(cost, user)
-	 	condition = finalFuncs.conditions(total, district, user)
+	 	condition = finalFuncs.conditions(total, user)
 	 	
 	 	template_values= {'Cost':total, 'Condition':condition}
 	 	
