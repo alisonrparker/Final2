@@ -29,12 +29,12 @@ def totalCost(cost, user):
 	return totalCost
 				
 
-def conditions(cost, district, user):
+def conditions(cost, user):
 	#neighborhoods and their solar generating potential in kWh per meter squared
 	places = {'Richmond': 4.12, 'Marina':4.59, 'North Beach':4.58, 'Parkside':4.12, 'Hayes Valley':4.61, 'SoMa':4.82, 'Midtown Terrace':4.12, 'Bayview':4.44, 'Portola':4.5, 'Visitacion Valley':4.79, 'Castro':4.41, 'Mission':4.58, 'South San Francisco': 5.04, 'Lake Shore':4.15,'South Beach':4.64, 'Dogpatch':4.65, 'Alamo Square/Western Addition':3.79, 'Sunnyside':4.23, 'Union Square':4.30, 'Financial District':4.47, 'Yerba Buena':4.45, 'Embarcadero':4.83, 'Nopa':4.28}
 	#average annual kWh consumed per capita by neighborhood
 	electricity = {'Richmond': 1945, 'Marina': 2314, 'North Beach':1634, 'Parkside':1634, 'Hayes Valley':1391, 'SoMa':2993, 'Midtown Terrace':2314, 'Bayview':1391, 'Portola':1391, 'Visitacion Valley':1391, 'Castro':2314, 'Mission':1391, 'South San Francisco': 1391, 'Lake Shore':1634, 'South Beach':1945, 'Dogpatch':1945, 'Alamo Square/Western Addition':1945, 'Sunnyside':1391, 'Union Square':1945, 'Financial District':1634, 'Yerba Buena':1945, 'Embarcadero':1391, 'Nopa':1945}
-	home = district
+	home = user.district
 	family = user.persons
 	solar = places[home]
 	utility = electricity[home]
