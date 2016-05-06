@@ -1,32 +1,29 @@
-#create a user
 class User:
 	def __init__(self, district, income, persons):
 		self.district = district
 		self.income = income
 		self.persons = persons
 
-#get info for calculating cost
 class Cost:	
 	def __init__(self):
-		#neighborhoods with an automatic $800 rebate
 		self.subsidies = ['SoMA', 'Bayview', 'Dogpatch', "South Beach", "Yerba Buena"]
-		#median income levels by number of people in household
 		self.medianI = {1:31860, 2:31860, 3:40180, 4:48500, 5:56820, 6: 65140, 7:73460, 8:81780}
 		
-#calculate cost after subsidies
+
+
 def totalCost(cost, user):
-	totalCost = 12000
+	total = 12000
 	for i in range (len(cost.subsidies)):
 		if user.district == cost.subsidies[i]:
-			totalCost = totalCost - 800		
+			total = total - 800		
 	
 	numPeople = user.persons
-	print numPeople
+	# print numPeople
 	medianIncome = cost.medianI[numPeople] 
 	if user.income < medianIncome:
-		totalCost = totalCost - 7000
+		total = total - 7000
 				
-	return totalCost
+	return total
 				
 
 def conditions(cost, user):
@@ -48,7 +45,6 @@ def conditions(cost, user):
 		if cost <= (((utility*family)*(.1534))*10):
 			ranking = 'average'
 		if cost > (((utility*family)*(.1534))*10):
-			ranking = 'poor'  
+			ranking = 'poor' 
 		
 	return ranking
-			
