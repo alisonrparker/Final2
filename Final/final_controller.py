@@ -54,7 +54,7 @@ class MainPage(BaseHandler):
 class ControllerPage(BaseHandler):
 
 	 def get(self):
-	 	district= self.request.get("district")
+	 	district = self.request.get("district")
 	 	income= self.request.get("income")
 	 	income = int(income)
 	 	persons = self.request.get("persons")
@@ -82,5 +82,4 @@ app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/send', ControllerPage),
 ], config=config, debug=True)
-
 
