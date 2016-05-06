@@ -1,8 +1,32 @@
 <html>
 	<body>
-	<form action "/send" method = "get">
+	<form action = "/send" method = "get">
 		<p>Income:</P><input type="text" name="income" value=''>
-		<p>District:</P><input type="text" name="district" value=''>
+		<p>District:</P><input list="dist" name="district">
+		<datalist id="dist">
+			<option value="Alamo Square/Western Addition">
+			<option value="Bayview">
+			<option value="Castro">
+			<option value="Dogpatch">
+			<option value="Embarcadero">
+			<option value="Financial District">
+			<option value="Hayes Valley">
+			<option value="Lake Shore">
+			<option value="Marina">
+			<option value="Midtown Terrace">
+			<option value="Mission">
+			<option value="Nopa">
+			<option value="North Beach">
+			<option value="Parkside">
+			<option value="Portola">
+			<option value="Richmond">
+			<option value="SoMa">
+			<option value="South Beach">
+			<option value="Sunnyside">
+			<option value="Union Square">
+			<option value="Visitacion Valley">
+			<option value="Yerba Buena">
+  		</datalist>
 		<p>Number of people in household:</P><input type="text" name="persons" value=''>
 		<input type="submit" value="submit">
 	</form>
