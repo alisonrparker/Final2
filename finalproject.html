@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<h1>Solar Pan-Francisco</h1>
+	</head>
+
+	<body>
+	<style>
+	h1 {
+		font-size: 93px;
+		line-height: 100px;
+		color: #248f24;
+		font-family:'Impact';
+		letter-spacing: 5px;
+		background:rgba(255,255,255,0.75);
+  		padding: 15px;
+  		height: 100px;
+  		width: 100%;
+	}
+
+	body {
+		background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0c/Location_map_San_Francisco_County.png');
+
+		background-size: 100%;
+		text-align: center;
+	}
+
+	form {
+		font-family:'Geneva';
+		background:#7f7f7f;
+  		background:rgba(255,255,255,0.75);
+  		padding: 25px;
+  		height: 300px;
+  		width: 400px;
+		position:relative;
+		left:50%;
+		top:50%;
+		margin: -300px 0 0 -230px;
+	}
+
+	input#button {
+		background-color: #248f24; 
+		border: white;
+		color: white;
+		padding: 16px 32px;
+		text-align: center;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+
+	
+
+	</style>
+
+	<form action = "/send" method = "get">
+		<p>Income:</P><input type="text" name="income" value=''>
+		<p>District:</P><input list="dist" name="district">
+		<datalist id="dist">
+			<option value="Alamo Square/Western Addition">
+			<option value="Bayview">
+			<option value="Castro">
+			<option value="Dogpatch">
+			<option value="Embarcadero">
+			<option value="Financial District">
+			<option value="Hayes Valley">
+			<option value="Lake Shore">
+			<option value="Marina">
+			<option value="Midtown Terrace">
+			<option value="Mission">
+			<option value="Nopa">
+			<option value="North Beach">
+			<option value="Parkside">
+			<option value="Portola">
+			<option value="Richmond">
+			<option value="SoMa">
+			<option value="South Beach">
+			<option value="Sunnyside">
+			<option value="Union Square">
+			<option value="Visitacion Valley">
+			<option value="Yerba Buena">
+  		</datalist>
+		<p>Number of people in household:</P><input type="text" name="persons" value=''>
+		</br>
+		</br>
+		
+		
+		<input type="submit" name="submit" value="Submit" id="button">
+		
+		
+	</form>
+	
+	
+	
+	</body>
+</html>
