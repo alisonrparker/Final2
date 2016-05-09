@@ -57,9 +57,12 @@ class ControllerPage(BaseHandler):
 	 	persons = float(persons) 
 
 
-	 	index = income.find(',')
+	 	comma = income.find(',')
+	 	dollar = income.find('$')
 	 	if ',' in income:
-	 		income = income[:index]+income[index+1:]
+	 		income = income[:comma]+income[comma+1:]
+	 	if '$' in income:
+	 		income = income[:dollar]+income[dollar+1:]
 	 	income = float(income)
 
 
