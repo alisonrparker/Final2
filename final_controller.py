@@ -2,9 +2,6 @@
 import os
 import urllib
 
-from google.appengine.api import users
-from google.appengine.ext import ndb
-
 # session code from this example:
 # url: http://webapp-improved.appspot.com/api/webapp2_extras/sessions.html
 
@@ -56,13 +53,14 @@ class ControllerPage(BaseHandler):
 	 def get(self):
 	 	district = self.request.get("district")
 	 	income= self.request.get("income")
-	 	income = int(income)
+	 	income = float(income)
 	 	persons = self.request.get("persons")
-	 	persons = int(persons) 
+	 	persons = float(persons) 
+
 	 	user = finalFuncs.User(district, income, persons)
-	 	cost = finalFuncs.Cost()
-	 	total = finalFuncs.totalCost(cost, user)
-	 	condition = finalFuncs.conditions(total, user)
+	 	info = finalFuncs.Info()
+	 	total = finalFuncs.totalCost(info, user)
+	 	condition = finalFuncs.conditions(total, info, user)
 	 	
 	 	template_values= {'Cost':total, 'Condition':condition}
 	 	
