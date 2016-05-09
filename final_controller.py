@@ -53,9 +53,15 @@ class ControllerPage(BaseHandler):
 	 def get(self):
 	 	district = self.request.get("district")
 	 	income= self.request.get("income")
-	 	income = float(income)
 	 	persons = self.request.get("persons")
 	 	persons = float(persons) 
+
+
+	 	index = income.find(',')
+	 	if ',' in income:
+	 		income = income[:index]+income[index+1:]
+	 	income = float(income)
+
 
 	 	user = finalFuncs.User(district, income, persons)
 	 	info = finalFuncs.Info()
