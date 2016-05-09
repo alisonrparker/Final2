@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<h1>Solar Pan-Francisco</h1>
+		<h1>Solar Smart SF</h1>
 	</head>
 
 	<body>
@@ -16,14 +16,11 @@
   		height: 100px;
   		width: 100%;
 	}
-
 	body {
 		background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0c/Location_map_San_Francisco_County.png');
-
 		background-size: 100%;
 		text-align: center;
 	}
-
 	form {
 		font-family:'Geneva';
 		background:#7f7f7f;
@@ -36,7 +33,6 @@
 		top:50%;
 		margin: -300px 0 0 -230px;
 	}
-
 	input#button {
 		background-color: #248f24; 
 		border: white;
@@ -48,38 +44,37 @@
 		margin: 4px 2px;
 		cursor: pointer;
 	}
-
 	
-
 	</style>
 
 	<form action = "/send" method = "get">
 		<p>Income:</P><input type="text" name="income" value=''>
-		<p>District:</P><input list="dist" name="district">
-		<datalist id="dist">
-			<option value="Alamo Square/Western Addition">
-			<option value="Bayview">
-			<option value="Castro">
-			<option value="Dogpatch">
-			<option value="Embarcadero">
-			<option value="Financial District">
-			<option value="Hayes Valley">
-			<option value="Lake Shore">
-			<option value="Marina">
-			<option value="Midtown Terrace">
-			<option value="Mission">
-			<option value="Nopa">
-			<option value="North Beach">
-			<option value="Parkside">
-			<option value="Portola">
-			<option value="Richmond">
-			<option value="SoMa">
-			<option value="South Beach">
-			<option value="Sunnyside">
-			<option value="Union Square">
-			<option value="Visitacion Valley">
-			<option value="Yerba Buena">
-  		</datalist>
+		<p>District:</P>
+		<!-- <input list="dist" name="district"> -->
+		<select name="district">
+			<option value="Alamo Square/Western Addition">Alamo Square/Western Addition</option>
+			<option value="Bayview">Bayview</option>
+			<option value="Castro">Castro</option>
+			<option value="Dogpatch">Dogpatch</option>
+			<option value="Embarcadero">Embarcadero</option>
+			<option value="Financial District">Financial District</option>
+			<option value="Hayes Valley">Hayes Valley</option>
+			<option value="Lake Shore">Lake Shore</option>
+			<option value="Marina">Marina</option>
+			<option value="Midtown Terrace">Midtown Terrace</option>
+			<option value="Mission">Mission</option>
+			<option value="Nopa">Nopa</option>
+			<option value="North Beach">North Beach</option>
+			<option value="Parkside">Parkside</option>
+			<option value="Portola">Portola</option>
+			<option value="Richmond">Richmond</option>
+			<option value="SoMa">SoMa</option>
+			<option value="South Beach">South Beach</option>
+			<option value="Sunnyside">Sunnyside</option>
+			<option value="Union Square">Union Square</option>
+			<option value="Visitacion Valley">Visitacion Valley</option>
+			<option value="Yerba Buena">Yerba Buena</option>
+  		</select>
 		<p>Number of people in household:</P><input type="text" name="persons" value=''>
 		</br>
 		</br>
