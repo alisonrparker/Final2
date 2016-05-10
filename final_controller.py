@@ -9,7 +9,7 @@ import jinja2
 import webapp2
 from webapp2_extras import sessions
 
-# import your mastermind functions
+# import functions
 import finalFuncs
 
 # boiler plate code for sessions
@@ -41,31 +41,46 @@ class BaseHandler(webapp2.RequestHandler):  # Copied from Google's doc
 class MainPage(BaseHandler):
 
 	def get(self):
-	
 		template_values= {}
 		template = JINJA_ENVIRONMENT.get_template('finalproject.html')
 		self.response.write(template.render(template_values))
-
-   
 # [END main_page]
+
+# [START error page]
+class ErrorPage(BaseHandler):
+
+	def get(self):
+	 	template_values= {}
+	 	template = JINJA_ENVIRONMENT.get_template('error.html')
+	 	self.response.write(template.render(template_values))
+# [END error page]
+
+# [START controller page]
 class ControllerPage(BaseHandler):
 
 	 def get(self):
 	 	district = self.request.get("district")
-	 	income= self.request.get("income")
+	 	income = self.request.get("income")
 	 	persons = self.request.get("persons")
-	 	persons = float(persons) 
+	 	
+	 	if persons.isdigit():
+	 		persons = float(persons)
+	 	else:
+	 		self.redirect('/error')
+	 		return
 
+	 	if income.isdigit():
+	 		income = float(income)
+	 	else:
+	 		self.redirect('/error')
+	 		return
 
-	 	comma = income.find(',')
-	 	dollar = income.find('$')
-	 	if ',' in income:
-	 		income = income[:comma]+income[comma+1:]
-	 	if '$' in income:
-	 		income = income[:dollar]+income[dollar+1:]
-	 	income = float(income)
-
-
+	 	if persons <= 8:
+	 		persons = float(persons)
+	 	else:
+	 		self.redirect('/error')
+	 		return
+	 
 	 	user = finalFuncs.User(district, income, persons)
 	 	info = finalFuncs.Info()
 	 	total = finalFuncs.totalCost(info, user)
@@ -75,7 +90,7 @@ class ControllerPage(BaseHandler):
 	 	
 	 	template = JINJA_ENVIRONMENT.get_template('DisplaySolarInfo.html')
 	 	self.response.write(template.render(template_values))
-
+# [END controller page]
 
 # boiler plate, leave as is
 config = {}
@@ -83,9 +98,9 @@ config['webapp2_extras.sessions'] = {
     'secret_key': 'my-super-secret-key',
 }
 
-
 # here is where you map your url requests to handlers
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/send', ControllerPage),
+    ('/error', ErrorPage),
 ], config=config, debug=True)
