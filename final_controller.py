@@ -63,6 +63,7 @@ class ControllerPage(BaseHandler):
 	 	income = self.request.get("income")
 	 	persons = self.request.get("persons")
 	 	
+	 	# [START error handling]
 	 	if persons.isdigit():
 	 		persons = float(persons)
 	 	else:
@@ -80,6 +81,7 @@ class ControllerPage(BaseHandler):
 	 	else:
 	 		self.redirect('/error')
 	 		return
+	 	# [END error habdling]
 	 
 	 	user = finalFuncs.User(district, income, persons)
 	 	info = finalFuncs.Info()
