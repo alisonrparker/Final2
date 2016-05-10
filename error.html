@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<h1>Solar Smart SF</h1>
+	</head>
+
+	<body>
+	<style>
+	h1 {
+		font-size: 93px;
+		line-height: 100px;
+		color: #248f24;
+		font-family:'Impact';
+		letter-spacing: 5px;
+		background:rgba(255,255,255,0.75);
+  		padding: 15px;
+  		height: 100px;
+  		width: 100%;
+  		text-align: center;
+	}
+	body {
+		background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0c/Location_map_San_Francisco_County.png');
+		background-size: 100%;
+		text-align: center;
+	}
+	form {
+		font-family:'Geneva';
+		font-size: 15px;
+		background:#7f7f7f;
+  		background:rgba(255,255,255,0.60);
+  		padding: 35px;
+  		height: 500px;
+  		width: 750px;
+		position:fixed;
+		left:50%;
+		top:50%;
+		margin-left: -375px;
+		margin-top: -225px;
+	}
+
+	P1 {
+		font-family:'Geneva';
+		font-size: 15px;
+		color: red;
+	}
+	input#button {
+		background-color: #248f24; 
+		border: white;
+		color: white;
+		padding: 16px 32px;
+		text-align: center;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	
+	</style>
+
+	<form action = "/send" method = "get">
+		<h2>Welcome to Solar Smart SF!</h2>
+		<p>We strive to create a greener city by helping you get an idea of what green will look like via solar panels.</p>
+		<p>When you enter your neighborhood, income, and family size, we calculate your estimated cost of installation, and whether solar panels will be a good match for your household.</p>
+		<p>Using factors such as solar generating potential, long-term electricity costs, and local and federal subsidies, we give you an estimate of how much it may cost you to go solar.</p>
+		<p>Income:</p>
+		<p1>PLEASE ENTER ONLY NUMBERS</p1></br><input type="text" name="income" value=''>
+		<p>District:</P>
+		<!-- <input list="dist" name="district"> -->
+		<select name="district">
+			<option value="Alamo Square/Western Addition">Alamo Square/Western Addition</option>
+			<option value="Bayview">Bayview</option>
+			<option value="Castro">Castro</option>
+			<option value="Dogpatch">Dogpatch</option>
+			<option value="Embarcadero">Embarcadero</option>
+			<option value="Financial District">Financial District</option>
+			<option value="Hayes Valley">Hayes Valley</option>
+			<option value="Lake Shore">Lake Shore</option>
+			<option value="Marina">Marina</option>
+			<option value="Midtown Terrace">Midtown Terrace</option>
+			<option value="Mission">Mission</option>
+			<option value="Nopa">Nopa</option>
+			<option value="North Beach">North Beach</option>
+			<option value="Parkside">Parkside</option>
+			<option value="Portola">Portola</option>
+			<option value="Richmond">Richmond</option>
+			<option value="SoMa">SoMa</option>
+			<option value="South Beach">South Beach</option>
+			<option value="Sunnyside">Sunnyside</option>
+			<option value="Union Square">Union Square</option>
+			<option value="Visitacion Valley">Visitacion Valley</option>
+			<option value="Yerba Buena">Yerba Buena</option>
+  		</select>
+		<p>Number of people in household (no more than 8):</P>
+		<p1>PLEASE ENTER ONLY NUMBERS/8 OR LESS</p1></br><input type="text" name="persons" value=''>
+		</br>
+		</br>
+		
+		
+		<input type="submit" name="submit" value="Submit" id="button">
+		
+		
+	</form>
+	
+	
+	
+	</body>
+</html>
