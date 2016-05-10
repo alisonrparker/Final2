@@ -1,12 +1,16 @@
 class User:
+	
 	def __init__(self, district, income, persons):
 		self.district = district
 		self.income = income
 		self.persons = persons
 
 class Info:	
+	
 	def __init__(self):
+		#neighborhoods with $800 subsidy
 		self.subsidies = ['SoMA', 'Bayview', 'Dogpatch', "South Beach", "Yerba Buena"]
+		#median income by num in household
 		self.medianI = {1:31860, 2:31860, 3:40180, 4:48500, 5:56820, 6: 65140, 7:73460, 8:81780}
 		#neighborhoods and their solar generating potential in kWh per meter squared
 		self.places = {'Sunset':4.12,'Richmond': 4.12, 'Marina':4.59, 'North Beach':4.58, 'Parkside':4.12, 'Hayes Valley':4.61, 'SoMa':4.82, 'Midtown Terrace':4.12, 'Bayview':4.44, 'Portola':4.5, 'Visitacion Valley':4.79, 'Castro':4.41, 'Mission':4.58, 'South San Francisco': 5.04, 'Lake Shore':4.15,'South Beach':4.64, 'Dogpatch':4.65, 'Alamo Square/Western Addition':3.79, 'Sunnyside':4.23, 'Union Square':4.30, 'Financial District':4.47, 'Yerba Buena':4.45, 'Embarcadero':4.83, 'Nopa':4.28}
@@ -16,19 +20,19 @@ class Info:
 
 
 def totalCost(info, user):
+	
 	total = 12000
+	#deduct any automatic subsidies
 	for i in range (len(info.subsidies)):
 		if user.district == info.subsidies[i]:
 			total = total - 800	
 	
-
-	
+	#deduct any income based subsidies
 	numPeople = user.persons
-	# print numPeople
 	medianIncome = info.medianI[numPeople] 
 	if user.income < medianIncome:
 		total = total - 7000
-				
+	
 	return total
 				
 
